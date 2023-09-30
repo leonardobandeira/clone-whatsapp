@@ -1,1 +1,23 @@
-// app global css in SCSS form
+.q-field {
+    height: 42px;
+}
+
+.q-fiedl__control {
+    height: 42px;
+}
+
+.q-field_marginal {
+    height: auto;
+}
+
+.q-fild__control-contaier{
+    height: 42px !important;
+
+}
+
+.q-feld__label{
+    top: 10px;
+    bottom: 10px;
+    font-size: 15px;
+    color: $font-grey;
+}
