@@ -21,7 +21,7 @@ export default defineComponent({
 })
 </script>
 
-scss <style lang="scss" scoped>
+<style lang="scss" scoped>
 .empty{
   height: 100hv;
   min-width: 800px;
