@@ -4,7 +4,7 @@
       <ConversationArea :users="users" @selectedItem="setCurrentItem"/>
     </div>
 
-    <div class="column" v-if="true">
+    <div class="column" v-if="selectedItem">
       <TopBar :title="nameConversation"/>
       <ChatArea />
       <MessageBar />
