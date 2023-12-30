@@ -1,10 +1,13 @@
 <template>
    <div class="conversation-area">
-    <Header></Header>
+    <Header/>
 
     <div class="card-area">
         <div class="card row items-center justify-between q-px-md"
-        v-for="item in 20" :key="item">
+        v-for="item in currentUsers" 
+        :key="item"
+        @click="seeConversation(item.id, item.email)"
+        >
             <q-avatar size="40px" class="q-mr-sm">
                 <q-img src="https://i.pravatar.cc/40"></q-img>
             </q-avatar>
@@ -12,8 +15,8 @@
             <div class="message column justify-around full-height q-pt-sm">
                 <div class="row justify-between">
                     <div class="column">
-                        <span>Leonardo Lucena</span>
-                        <span v-if="true">Nova mensagem recebida</span>
+                        <span>{{ item.name }}</span>
+                        <span v-if="item.newMessage">Nova mensagem recebida</span>
                         <span v-else>Veja a nossa última conversa...</span>
                     </div>
                     <div class="column items-center justify-center">
@@ -33,7 +36,26 @@ import Header from './components/Header.vue'
 
 export default defineComponent({
   name: 'ConversationArea',
-  components: {Header}
+  props: ['users'],
+  components: {Header},
+  data(){
+    return {
+        currentUsers: []
+    }
+  },
+  methods:{
+    seeConversation(id, email){
+        this.$emit("selectedItem", {id, email})
+    }
+  },
+  watch:{
+    users(){
+        this.currentUsers = this.users
+    }
+  },
+  mounted(){
+    this.currentUsers = this.users
+  }
 })
 </script>
   
