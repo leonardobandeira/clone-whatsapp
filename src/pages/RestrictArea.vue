@@ -6,7 +6,7 @@
 
     <div class="column" v-if="selectedItem">
       <TopBar :title="nameConversation"/>
-      <ChatArea />
+      <ChatArea :currentUser="selectedItem" :newMessage="newMessage"/>
       <MessageBar />
     </div>
     <Empty v-else/>
