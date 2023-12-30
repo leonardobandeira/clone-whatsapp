@@ -37,8 +37,13 @@ export default defineComponent({
     await this.getMessages()
   },
   watch:{
-    currentUser(){},
-    newMessage(){}
+    async currentUser(){
+      this.messages = []
+      await this.getMessages()
+    },
+    async newMessage(){
+      await this.getMessages()
+    }
   },
   methods:{
     async getMessages(){
